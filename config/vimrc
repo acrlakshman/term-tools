@@ -63,6 +63,12 @@ Plug 'christoomey/vim-tmux-navigator'
 " Easily comment/uncomment code
 Plug 'scrooloose/nerdcommenter', { 'on': '<plug>NERDCommenterToggle' }
 
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
+
+Plug 'fatih/vim-go'
+
 " Initialize plugin system
 call plug#end()
 
@@ -489,3 +495,22 @@ vmap <leader><leader> <plug>NERDCommenterToggle
 " Easy-align plugin
 nmap <leader>a <Plug>(EasyAlign)
 xmap <leader>a <Plug>(EasyAlign)
+
+nnoremap <F3> :FormatLines <CR>
+nnoremap <F4> :FormatCode <CR>
+xnoremap <F3> :FormatLines <CR>
+xnoremap <F4> :FormatCode <CR>
+nnoremap <F8> :set wrap <CR>
+nnoremap <F9> :set nowrap <CR>
+
+"augroup autoformat settings
+   "autocmd FileType bzl AutoFormatBuffer buildifier
+   "autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+   "autocmd FileType go AutoFormatBuffer gofmt
+   "autocmd FileType python AutoFormatBuffer yapf
+"augroup END
+" }}}
+"
+" Mapping selecting mappings
+nnoremap <c-p> :FZF<cr>
+set rtp+=/usr/local/opt/fzf
